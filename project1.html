@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 	<head>
@@ -93,4 +94,99 @@
 			
 		</script>
 	</body>
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+			
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+			var cube = new THREE.Mesh (geometry, material);
+			
+			
+			var geo = new THREE.EdgesGeometry( cube.geometry );
+			var mat = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 4 } );
+
+			var dis = 1;
+			var xoff = -3;
+		
+			
+					var cube = new THREE.Mesh (geometry, material);
+					var wireframe = new THREE.LineSegments( geo, mat );
+					wireframe.renderOrder = 1;
+					cube.add( wireframe );
+					
+					cube.position.x = (dis + 2*0) + xoff;
+					cube.position.y = (dis - 0);
+					cube.position.z = (dis + 0);
+					scene.add(cube);
+					
+					var cube2 = new THREE.Mesh (geometry, material);
+					var wireframe = new THREE.LineSegments( geo, mat );
+					wireframe.renderOrder = 1;
+					cube2.add( wireframe );
+					
+					cube2.position.x = (dis + 2*1) + xoff;
+					cube2.position.y = (dis - 1);
+					cube2.position.z = (dis + 1);
+					scene.add(cube2);
+					
+					var cube3 = new THREE.Mesh (geometry, material);
+					var wireframe = new THREE.LineSegments( geo, mat );
+					wireframe.renderOrder = 1;
+					cube3.add( wireframe );
+					
+					cube3.position.x = (dis + 2*2) + xoff;
+					cube3.position.y = (dis - 2);
+					cube3.position.z = (dis + 2);
+					scene.add(cube3);
+					
+					var cube4 = new THREE.Mesh (geometry, material);
+					var wireframe = new THREE.LineSegments( geo, mat );
+					wireframe.renderOrder = 1;
+					cube4.add( wireframe );
+					
+					cube4.position.x = (dis -10) + xoff;
+					cube4.position.y = (dis +1);
+					cube4.position.z = (dis -25);
+					scene.add(cube4);
+					animate();
+				
+			
+			camera.position.z = 5;
+			
+			function animate() {
+				requestAnimationFrame( animate );
+				
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+				cube2.rotation.x += -0.02;
+				cube2.rotation.y += -0.02;
+				cube3.rotation.x += 0.08;
+				cube3.rotation.y += -0.10;
+				cube4.rotation.x += -0.03;
+				cube4.rotation.y += 0.07;
+				
+				renderer.render( scene, camera );
+			}
+			
+		</script>
+	</body>
+>>>>>>> baff62e3a65ab93d3f23ccb349e63a735bb1ae6c
 </html>
